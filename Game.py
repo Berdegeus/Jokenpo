@@ -3,8 +3,10 @@
 from random import randint
 from time import sleep
 
+## Definindo a lista de opções
 options = ['pedra', 'papel', 'tesoura']
 
+## Função para decidir o vencedor
 def DecideWinner(UserChoice, ComputerChoice):
     print('JO')
     sleep(1)
@@ -37,16 +39,19 @@ def DecideWinner(UserChoice, ComputerChoice):
     else:
         print ('Opcao invalida')
 
+## Função para jogar novamente
 def PlayAgain():
     print('Deseja jogar novamente? (s/n)')
     return input().lower().startswith('s')
 
+## Função para jogar contra o computador
 def PlayComputer():
     print('Escolha entre pedra, papel ou tesoura')
     UserChoice = input('Voce: ')
     ComputerChoice = options[randint(0,2)]
     DecideWinner(UserChoice, ComputerChoice)
 
+## Função para jogar contra outro jogador
 def PlayPlayer():
     print('Escolha entre pedra, papel ou tesoura')
     UserChoice = input('Jogador 1: ')
@@ -54,11 +59,12 @@ def PlayPlayer():
     UserChoice2 = input('Jogador 2: ')
     DecideWinner(UserChoice, UserChoice2)
 
+## Loop principal
 while True:
-    print('-=' * 20)
+    print('-•' * 10)
     print('Bem vindo ao Jokempo')
-    print('-=' * 20)
-    print('Escolha uma opcao:')
+    print('-•' * 10)
+    print('Escolha uma opção:')
     print('1 - Jogar contra o computador')
     print('2 - Jogar contra outro jogador')
     print('3 - Sair')
@@ -73,7 +79,6 @@ while True:
         print('Opcao invalida')
     if not PlayAgain():
         break
-
 
 print('Obrigado por jogar')
 
