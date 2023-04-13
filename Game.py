@@ -3,6 +3,9 @@
 from random import randint
 from time import sleep
 
+jogador = 0
+jogador2 = 0
+
 ## Definindo a lista de opções
 options = ['pedra', 'papel', 'tesoura']
 
@@ -24,18 +27,24 @@ def DecideWinner(UserChoice, ComputerChoice):
     elif UserChoice == options[0]:
         if ComputerChoice == options[1]:
             print ('Computador venceu')
+            jogador2 = jogador2 + 1
         else:
             print ('VOCE VENCEU!!!')
+            jogador = jogador + 1
     elif UserChoice == options[1]:
         if ComputerChoice == options[2]:
             print ('Computador venceu')
+            jogador2 = jogador2 + 1
         else:
             print ('VOCE VENCEU!!!')
+            jogador = jogador + 1
     elif UserChoice == options[2]:
         if ComputerChoice == options[0]:
             print ('Computador venceu')
+            jogador2 = jogador2 + 1
         else:
             print ('VOCE VENCEU!!!')
+            jogador = jogador + 1
     else:
         print ('Opcao invalida')
 
@@ -47,7 +56,7 @@ def PlayAgain():
 ## Função para jogar contra o computador
 def PlayComputer():
     print('Escolha entre pedra, papel ou tesoura')
-    UserChoice = input('Voce: ')
+    UserChoice = input('Voce: ') 
     ComputerChoice = options[randint(0,2)]
     DecideWinner(UserChoice, ComputerChoice)
 
@@ -59,6 +68,14 @@ def PlayPlayer():
     UserChoice2 = input('Jogador 2: ')
     DecideWinner(UserChoice, UserChoice2)
 
+def ComputerComputer(): 
+    print('Escolha entre pedra, papel ou tesoura')
+    ComputerChoice1 = options[randint(0,2)]
+    print('Escolha entre pedra, papel ou tesoura')
+    ComputerChoice2 = options[randint(0,2)]
+    DecideWinner(ComputerChoice1, ComputerChoice2)
+
+
 ## Loop principal
 while True:
     print('-•' * 10)
@@ -67,13 +84,20 @@ while True:
     print('Escolha uma opção:')
     print('1 - Jogar contra o computador')
     print('2 - Jogar contra outro jogador')
-    print('3 - Sair')
+    print('3 - Computador contra o computador')
+    print('4 - imprimir placar')
+    print('5 - Sair')
     option = int(input())
     if option == 1:
         PlayComputer()
     elif option == 2:
         PlayPlayer()
     elif option == 3:
+        ComputerComputer()
+    elif option == 4:
+        print('Jogador 1: ', jogador)
+        print('Jogador 2: ', jogador2)
+    elif option == 5:
         break
     else:
         print('Opcao invalida')
@@ -81,6 +105,8 @@ while True:
         break
 
 print('Obrigado por jogar')
+print('Jogador 1: ', jogador)
+print('Jogador 2: ', jogador2)
 
 
 
