@@ -81,13 +81,12 @@ while True:
     print('-•' * 10)
     print('Bem vindo ao Jokempo')
     print('-•' * 10)
-    print('Escolha uma opção:')
     print('1 - Jogar contra o computador')
     print('2 - Jogar contra outro jogador')
     print('3 - Computador contra o computador')
     print('4 - imprimir placar')
     print('5 - Sair')
-    option = int(input())
+    option = int(input('Escolha uma opção:'))
     if option == 1:
         PlayComputer()
     elif option == 2:
