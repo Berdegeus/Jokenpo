@@ -1,5 +1,3 @@
-## Jokempo game in Python, the user can play against the computer or againt other player, yhe code is in a while loop, so the user can play as many times as he wants.
-
 from random import randint
 from time import sleep
 
@@ -11,6 +9,7 @@ options = ['pedra', 'papel', 'tesoura']
 
 ## Função para decidir o vencedor
 def DecideWinner(UserChoice, ComputerChoice):
+    global jogador, jogador2  # make variables accessible from function
     print('JO')
     sleep(1)
     print('KEN')
@@ -27,24 +26,24 @@ def DecideWinner(UserChoice, ComputerChoice):
     elif UserChoice == options[0]:
         if ComputerChoice == options[1]:
             print ('Computador venceu')
-            jogador2 = jogador2 + 1
+            jogador2 += 1
         else:
             print ('VOCE VENCEU!!!')
-            jogador = jogador + 1
+            jogador += 1
     elif UserChoice == options[1]:
         if ComputerChoice == options[2]:
             print ('Computador venceu')
-            jogador2 = jogador2 + 1
+            jogador2 +=  1
         else:
             print ('VOCE VENCEU!!!')
-            jogador = jogador + 1
+            jogador += 1
     elif UserChoice == options[2]:
         if ComputerChoice == options[0]:
             print ('Computador venceu')
-            jogador2 = jogador2 + 1
+            jogador2 += 1
         else:
             print ('VOCE VENCEU!!!')
-            jogador = jogador + 1
+            jogador += 1
     else:
         print ('Opcao invalida')
 
@@ -55,6 +54,7 @@ def PlayAgain():
 
 ## Função para jogar contra o computador
 def PlayComputer():
+    global jogador, jogador2  # make variables accessible from function
     print('Escolha entre pedra, papel ou tesoura')
     UserChoice = input('Voce: ') 
     ComputerChoice = options[randint(0,2)]
@@ -62,19 +62,20 @@ def PlayComputer():
 
 ## Função para jogar contra outro jogador
 def PlayPlayer():
+    global jogador, jogador2  # make variables accessible from function
     print('Escolha entre pedra, papel ou tesoura')
     UserChoice = input('Jogador 1: ')
     print('Escolha entre pedra, papel ou tesoura')
     UserChoice2 = input('Jogador 2: ')
     DecideWinner(UserChoice, UserChoice2)
 
-def ComputerComputer(): 
+def ComputerComputer():
+    global jogador, jogador2  # make variables accessible from function
     print('Escolha entre pedra, papel ou tesoura')
     ComputerChoice1 = options[randint(0,2)]
     print('Escolha entre pedra, papel ou tesoura')
     ComputerChoice2 = options[randint(0,2)]
     DecideWinner(ComputerChoice1, ComputerChoice2)
-
 
 ## Loop principal
 while True:
